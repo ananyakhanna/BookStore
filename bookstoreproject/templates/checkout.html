@@ -1,0 +1,73 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseUser.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleCheckout.css' %}">
+{% endblock %}
+{% block title %}
+Checkout
+{% endblock %}
+{% block content %}
+
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+    </div>
+</div>
+{% endfor %}
+
+{% for cart in cart %}
+{% if cart.status == False %}
+
+<center>
+
+    <div class="card">
+        <div class="item">
+            <img src="{{cart.product.image.url}}" alt="error" class="card-img">
+        </div>
+        <div class="item">
+            <div class="i">
+                <label for="">Book Name:</label>
+                <span>{{cart.product.name}}</span>
+            </div>
+            <div class="i">
+                <label for="">Quantity:</label>
+                <span>{{cart.quantity}}</span>
+            </div>
+            <div class="i">
+                <label for="">Amount:</label>
+                <span>&#x20B9 {{cart.product.amount}}</span>
+            </div>
+
+        </div>
+    </div>
+</center>
+{% endif %}
+{% endfor %}
+<div class="form">
+
+    <form action="{% url 'order' %}" method="post">
+        {% csrf_token %}
+
+        <label for="address" class="label">Address(Order to be delivered at): </label>
+        <input type="text" name="address" class="text" required placeholder="Enter Your Delivery Address">
+
+        <label for="contactNo" class="label">Contact Number: </label>
+        <input type="tel" name="contactNo" class="text" required pattern="[0-9]{10}"
+        title="Please enter only 10 digits." placeholder="Enter Your Contact Number">
+
+        <label for="" class="label">Total(amount to be paid): </label>
+        <span>&#x20B9 {{total}}</span>
+        <input type="hidden" name="total" value="{{total}}">
+        <center>
+            <button class="submit input-submit">
+                Confirm Order for &#x20B9 {{total}}
+            </button>
+        </center>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleViewDesc.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>View Description</title>
+{% endblock %}
+
+{% block content %}
+<div class="desc">
+    <div class="heading-desc">
+        <h3>Description:</h3>
+    </div>
+    <span class="span-desc">
+        {{incident.description}}
+    </span>
+</div>
+{% endblock %}

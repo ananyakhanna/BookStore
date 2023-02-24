@@ -1,0 +1,11 @@
+ <!-- <form action="{% url 'decrease_cart_data' %}" method="post" style="display: inline;">{% csrf_token %}
+                            <input type="hidden" name="cid" value="{{i.id}}">
+                            <input type="hidden" name="qty-plus" value="{{i.quantity}}">
+                            <button> &minus; </button>
+                        </form> -->
+
+<!-- <form action="{% url 'increase_cart_data' %}" method="post" style="display: inline;">{% csrf_token %} 
+                            <input type="hidden" name="cid" value="{{i.id}}">
+                            <input type="hidden" name="qty-minus" value="{{i.quantity}}">
+                            <button> &plus; </button>
+                        </form> -->

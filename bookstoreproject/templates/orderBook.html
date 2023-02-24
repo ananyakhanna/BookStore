@@ -1,0 +1,22 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseUser.css' %}">
+{% endblock %}
+
+{% block title %}
+Order Confirmation
+{% endblock %}
+
+{% block content %}
+<section>
+    <center>
+        <div style="margin-top: 12rem;">
+            <img src="{% static 'image/success.png' %}" alt="error" style="height:10rem;">
+        </div>
+        <div style="margin-top: 2rem;font-size:x-large; ">
+            <span style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Your Order has been confirmed!</span>
+        </div>
+    </center>
+</section>
+{% endblock %}

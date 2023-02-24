@@ -1,0 +1,57 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleEditBookAdmin.css' %}">
+
+{% endblock %}
+{% block title %}
+<title>Edit Book</title>
+{% endblock %}
+{% block content %}
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+    </div>
+</div>
+{% endfor %}
+<section>
+    <div class="form">
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if book.image %}
+                <img src="{{book.image.url}}" alt="error" class="image">
+            {% else %}
+                <img src="{% static 'image/default-book.png' %}" alt="error" style="height: 60px;width: 60px;">
+            {% endif %}
+            <br><br>
+            <label for="" class="label">Upload Image of the book:</label>
+            <input type="file" name="image">
+            <br><br>
+            <label for="" class="label">Book Name:</label>
+            <input type="text" name="name" class="text" value="{{book.name}}">
+            
+            <label for="" class="label">Amount: </label>
+            <input type="number" name="amount" class="text" value="{{book.amount}}">
+
+            <label for="" class="label">Description:</label>
+            <input type="text" name="description" class="text" value="{{book.description}}">
+
+            <input type="hidden" name="form-type" value="form-two">
+
+            <div>
+                <center>
+                    <button type="submit" class="submit">Edit Book</button>
+                </center>
+            </div>
+        </form>
+    </div>
+</section>
+<script>
+    // window.location = "?book-id={{id}}";
+</script>
+{% endblock %}

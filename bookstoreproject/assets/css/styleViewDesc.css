@@ -1,0 +1,13 @@
+/* .heading-desc{
+    width: 70%;
+    margin: auto;
+
+} */
+.desc{
+    border: 1px solid grey;
+    width: 70%;
+    margin: auto;
+    margin-top: 5rem;
+    height: 10rem;
+    background-color: #f2f2f2;
+}

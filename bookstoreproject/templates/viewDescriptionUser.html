@@ -1,0 +1,21 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseUser.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleViewDesc.css' %}">
+{% endblock %}
+
+{% block title %}
+View Description
+{% endblock %}
+
+{% block content %}
+<div class="desc">
+    <div class="heading-desc">
+        <h3>Description:</h3>
+    </div>
+    <span class="span-desc">
+        {{incident.description}}
+    </span>
+</div>
+{% endblock %}

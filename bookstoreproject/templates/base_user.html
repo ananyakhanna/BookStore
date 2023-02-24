@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/styleBaseUser.css">
+    {% block link %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block style %}{% endblock %}
+    <script src="../static/js/jquery.js"></script>
+</head>
+
+<body>
+    <header>
+        <h3 class="heading"><a href="{% url 'landingPageUser' %}" class="heading_a">GrowHere</a></h3>
+        <nav class="navbar">
+            <ul class="nav_links">
+                <li> <a href="{% url 'landingPageUser' %}" class="navbar_a">Home</a> </li>
+                <li> <a href="{% url 'shopBooks' %}" class="navbar_a">Shop</a> </li>
+                <li> <a href="{% url 'orderStatusUser' %}" class="navbar_a">Order History</a> </li>
+                <li> <a href="{% url 'reportUser' %}" class="navbar_a">Report</a> </li>
+                <li> <a href="{% url 'statusUser' %}" class="navbar_a">Status</a> </li>
+                <li> <a href="{% url 'contactUs' %}" class="navbar_a">Contact Us</a> </li>
+                <!-- <li><a href="" class="navbar_a">Career</a></li> -->
+                <button class="shopping-cart">
+                    <a href="{% url 'cart' %}" class="shopping-cart_a"> &#128722;</a>
+                </button>
+                <div class="dropdown">
+                    <button class="dropbtn">More Options &#x25BC;</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'userProfile' %}">&#128100; Profile</a>
+                        <a href="javascript:{document.getElementById('logout').submit()}">&#10094; &nbsp; &nbsp;Logout
+                            <form id="logout" action="{% url 'logout' %}" method="post">{% csrf_token %}<input
+                                    type="hidden"></input></form>
+                        </a>
+    
+                    </div>
+                </div>
+            </ul>
+           
+
+        </nav>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>

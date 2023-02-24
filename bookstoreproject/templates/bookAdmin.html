@@ -1,0 +1,57 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleAdminBook.css' %}">
+{% endblock %}
+{% block title %}
+<title>Book Table</title>
+{% endblock %}
+{% block content %}
+
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+    </div>
+</div>
+{% endfor %}
+
+<div class="top">
+    <h2 class="heading-table">Book Table</h2>
+    <button class="button-table-top"><a href="{% url 'create' %}" role="button">Create New Book</a> </button>
+</div>
+<center>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in book %}
+            <tr>
+                <td>{{book.name}}</td>
+                <td>{{book.amount}}</td>
+                <td>{{book.description}}</td>
+                <td> <img src="{{book.image.url}}" alt="error" width="50px" height="60px"> </td>
+                <td>
+                    <button type="submit" class="button-table"><a
+                        href="{% url 'editBook' %}?book-id={{book.id}}">Edit</a></button>
+                    </td>
+                    <td> <button class="button-table"><a href="delete/{{book.id}}" role="button">Delete</a> </button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        
+    </center>
+        {% endblock %}

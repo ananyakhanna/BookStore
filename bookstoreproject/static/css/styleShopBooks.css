@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.item {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    /* border: 2px solid rebeccapurple; */
+    height: 300vh;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+
+.item img,
+.image {
+    width: 15rem;
+    height: 20rem;
+    border: 1px solid black;
+}
+
+.products {
+    overflow: visible;
+    height: 100%;
+    margin-top: 2%;
+    margin-bottom: 10%;
+    /* border: 2px solid cyan; */
+
+}
+
+.products h2 {
+    font-family: 'Dancing Script', cursive;
+    /* font-size: 50px; */
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 2%;
+
+}
+
+.i {
+    /* border: 2px solid red; */
+    text-align: center;
+    font-family: monospace, cursive;
+    transition: all .2s ease-in-out;
+    margin-bottom: 4rem;
+}
+
+.i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.submit {
+
+    height: 2rem;
+    width: 25%;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+
+}
+
+.select {
+    width: 10%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.select:hover {
+    cursor: pointer;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: rgb(63, 63, 63);
+}

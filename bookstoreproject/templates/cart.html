@@ -1,0 +1,102 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseUser.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleCart.css' %}">
+{% endblock %}
+{% block title %}
+Cart
+{% endblock %}
+{% block content %}
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+    </div>
+</div>
+{% endfor %}
+<center>
+    {% if items|length == 0 %}
+    <h1 style="margin-top: 2rem;font-family: 'Dancing Script', cursive; letter-spacing: 5px;">Cart({{items|length}})</h1>
+    {% else %}
+    <h1 style="margin-top: 2rem; font-family: 'Dancing Script', cursive; letter-spacing: 5px;">Cart({{items|length}})</h1>
+    
+    <table>
+        <thead>
+            <th>Image</th>
+            <th>Book Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for i in items %}
+            <tr>
+                <td><img src="{{i.product.image.url}}" alt="error" width="50px" height="60px"></td>
+                <td>{{i.product.name}}</td>
+                <td>
+                    &#x20B9 {{i.product.amount}}
+                </td>
+                <td>
+                    <span class="dot">
+                        <a href="" onclick="change_quantity('{{i.id}}', 'minus')" style="text-decoration: none;color: black;">&minus;</a>
+                    </span>
+                    <!-- <input type="number" name="" id="" value="{{i.quantity}}" max="4"> -->
+                    <input type="text" id="cart{{i.id}}" value="{{i.quantity}}" pattern="[1-4]{1}"  min="1" max="4" title="Please enter upto 4" required style="width: 2rem;border: none; text-align: center; background: none;">
+                    <span class="dot">
+                        <a href="" onclick="change_quantity('{{i.id}}', 'plus')" style="text-decoration: none;color: black;">&plus;</a>
+                    </span>
+                </td>
+                <td><a href="remove/{{i.id}}" class="cart_a">&times; Remove</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+</center>
+
+<div>
+    <center>
+        <button type="submit" class="button"> <a href="{% url 'checkout' %}" class="cart_a">Checkout</a></button>
+    </center>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script>
+    function change_quantity(id, action) 
+    {   
+        
+        let old = $("#cart"+id).val();
+        // alert(old)
+        quantity = 0
+        if(action == "plus")
+        {
+            quantity += parseInt(old) + 1;
+            if(quantity>4)
+            {
+                quantity = 4
+            }
+        }
+        else
+        {
+            quantity += parseInt(old) - 1;
+            if(quantity<1)
+            {
+                quantity = 1
+            }
+        }
+        $("#cart"+id).val(quantity);
+
+        $.ajax(
+            {
+                url:"{% url 'change_quan' %}",
+                type:"get",
+                data:{cid:id, quantity:quantity},
+            }
+        )
+
+    }
+</script>
+{% endif %}
+{% endblock %}

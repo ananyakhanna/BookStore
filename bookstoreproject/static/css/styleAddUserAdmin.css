@@ -1,0 +1,111 @@
+/* body {
+    f
+    background: url('../image/image-10.jpg') no-repeat center/cover;
+    background-attachment: fixed;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: white;
+    border: 1px solid grey;
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin: 5px 0 5px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    font-family: cursive;
+    font-size: medium;
+    border-radius: 2rem;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+/* hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+} */
+
+/* Set a style for the submit button */
+.registerbtn {
+    background-color: #caa9ff;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+    font-family: cursive;
+    font-size: medium;
+    border-radius: 2rem;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+/* Add a blue text color to links */
+/* a {
+    color: dodgerblue;
+} */
+
+/* Set a grey background color and center the text of the "sign in" section */
+/* .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+} */
+
+.helptext {
+    display: block;
+    margin-left: 2rem;
+    font-size: small;
+    font-family: cursive;
+}
+
+ul {
+    list-style: circle;
+    margin-left: 0px;
+}
+
+.errorlist {
+    color: red;
+    border: 1px solid red;
+    margin: 0px;
+    list-style: decimal;
+}
+
+.captcha {
+    border-radius: 10px;
+    margin-left: 3rem;
+    margin-top: 2rem;
+    height: 5rem;
+}
+
+label{
+    margin-left: 2rem;
+    font-size: medium;
+    font-style: italic;
+    font-family: cursive;
+}

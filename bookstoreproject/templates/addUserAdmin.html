@@ -1,0 +1,33 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleAddUserAdmin.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title>Add User</title>
+{% endblock %}
+
+{% block content %}
+    {% for message in messages %}
+    <div class="containerAlert">
+        <div class="alert" style="height: 2.4rem;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{message}}
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="container">
+
+        <form action="{% url 'addUserAdmin' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <center>
+                <button type="submit" class="registerbtn">Submit</button>
+            </center>
+    </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseUser.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleStatusUser.css' %}">
+{% endblock %}
+
+{% block title %}
+Status of the incidents
+{% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+    </div>
+</div>
+{% endfor %}
+
+<center>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Reported By</th>
+                <th>Reported On</th>
+                <th>Organization</th>
+                <th>Description</th>
+                <th>Incident Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for incident in incident %}
+            <tr>
+                <td>{{incident.name}}</td>
+                <td>{{incident.reported_on.date}}</td>
+                <td>{{incident.organization}}</td>
+                <td>
+                    <form action="{% url 'viewDescriptionUser' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="incident-id" value="{{incident.id}}">
+                        <button type="submit" class="button">{{incident.description|truncatewords:2}}</button>
+                    </form>
+                </td>
+                <td>
+                    {% if incident.upload_photo %}
+                    <img src="{{incident.upload_photo.url}}" alt="error"
+                        style="height: 60px;width: 50px; border: 1px solid grey;">
+		    {% elif incident.upload_photo == 'NULL' %}
+                    <img src="{% static 'image/default-image.jpg' %}" alt="error"
+                        style="height: 50px;width: 50px;border: 1px solid grey;">
+                    {% else %}
+                    <img src="{% static 'image/default-image.jpg' %}" alt="error"
+                        style="height: 50px;width: 50px;border: 1px solid grey;">
+                    {% endif %}
+                </td>
+                <td>
+                    {% if incident.action == True %}
+                    Fixed
+                    {% else %}
+                    Not Fixed
+                    {% endif %}
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+{% endblock %}

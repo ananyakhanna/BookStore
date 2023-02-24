@@ -1,0 +1,71 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleStatusAdmin.css' %}">
+{% endblock %}
+{% block title %}
+<title>Status</title>
+{% endblock %}
+{% block content %}
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+    </div>
+</div>
+{% endfor %}
+<h2 class="heading-table">Status Table</h2>
+<center>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Reported By</th>
+            <th>Reported On</th>
+            <th>Organization</th>
+            <th>Description</th>
+            <th>Incident Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for incident in incident %}
+        <tr>
+            <td>{{incident.name}}</td>
+            <td>{{incident.reported_on.date}}</td>
+            <td>{{incident.organization}}</td>
+            <td>
+                <form action="{% url 'viewDescription' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="incident-id" value="{{incident.id}}">
+                    <button type="submit" class="button-table">{{incident.description|truncatewords:2}}</button>
+                </form>
+            </td>
+            <td>
+                {% if incident.upload_photo %}
+                <img src="{{incident.upload_photo.url}}" alt="error"
+                    style="height: 60px;width: 50px;border: 1px solid gray;">
+                    {% else %}
+                    <img src="{% static 'image/default-image.jpg' %}" alt="error"
+                    style="height: 50px;width: 50px;border: 1px solid grey;">
+                {% endif %}
+            </td>
+            <td>
+                {% if incident.action == False %}
+                <form action="{% url 'statusAdmin' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="incident-id" value="{{incident.id}}">
+                    <button type="submit" class="button-table-action" style="cursor: pointer;">Fixed</button>
+                </form>
+                {% elif incident.action == True %}
+                <button type="submit" class="button-table-action-disabled" disabled="disabled">Fixed</button>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</center>
+{% endblock %}

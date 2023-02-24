@@ -1,0 +1,78 @@
+body{
+    font-family: cursive;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-bottom: 4rem;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #caa9ff;;
+    color: white;
+}
+
+.button-table{
+    width: 5rem;
+    height: 2rem;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.button-table:hover{
+    cursor: pointer;
+    background-color: rgb(193, 193, 193);
+}
+
+.button-table a{
+    text-decoration: none;
+    color: black;
+    width:5rem;
+}
+
+.button-table-top{
+    /* float: right; */
+    margin-right: 6rem;
+    width: 10rem;
+    height: 2rem;
+    background-color: #caa9ff;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* margin-bottom: 1rem; */
+    margin-top: 1rem;
+}
+
+.button-table-top a{
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.button-table-top:hover{
+    cursor: pointer;
+    background-color: #bb90ff;
+}
+
+.heading-table{
+    display: inline;
+    margin-left: 6rem;
+    /* margin-bottom: 3rem; */
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+}

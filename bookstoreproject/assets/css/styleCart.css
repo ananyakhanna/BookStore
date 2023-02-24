@@ -1,0 +1,40 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-top: 2rem;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;   
+}
+
+th {
+    background-color: #caa9ff;
+    color: white;
+}
+
+.button{
+    background-color: #fffcfc;
+    border: 1px solid grey;
+    border-radius: 3px;
+    width: 30%;
+    margin-top: 2rem;
+    height: 2rem;
+    color: black;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: #e8e8e8;
+}
+
+.cart_a{
+    text-decoration: none;
+    color: black;
+}

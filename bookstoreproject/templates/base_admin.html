@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/styleBaseAdmin.css">
+    {% block link %}
+
+    {% endblock %}
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+</head>
+
+<body class="body">
+    <!-- <div class="sidenav"> -->
+        <header>
+            <h3 class="heading"><a href="{% url 'dashboard' %}" class="heading_a">growhere</a></h3>
+            <nav class="navbar">
+                <ul class="nav_links">
+                    <li>
+                        <a href="{% url 'dashboard' %}" class="navbar_a">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'addUserAdmin' %}" class="navbar_a">Add User</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'bookAdmin' %}" class="navbar_a">Book Store</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'statusAdmin' %}" class="navbar_a">Status</a>
+                    </li>
+                    <li>
+                        <a href="javascript:{document.getElementById('logout').submit()}" class="navbar_a">Logout
+                            <form  id="logout" action="{% url 'logout' %}" method="post">{% csrf_token %}<input type="hidden"></input></form>
+                        </a> 
+                    </li>
+                    <li>
+
+                    </li>
+                    
+                    <!-- <a href="">Career</a> -->
+                </ul>
+            </nav>
+        </header>
+        <!-- </div> -->
+
+    <div class="main">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+</body>
+
+</html>

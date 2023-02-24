@@ -1,0 +1,45 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseUser.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleLandingPageUser.css' %}">
+{% endblock %}
+
+{% block title %}
+Welcome {{request.user}}!
+{% endblock %}
+{% block content %}
+
+
+<section class="endbar">
+    <div class="container">
+        <div class="item">
+            <label class="heading-h2-endbar label-heading">Contact Us</label>
+            <div class="sub-item">
+                <span><strong> Tel:</strong> </span><span>123-456-7890</span>
+            </div>
+            <div class="sub-item2">
+                <span> <strong> Email:</strong> </span><span>info@mysite.com</span>
+            </div>
+
+        </div>
+        <div class="item">
+            <label class="heading-h2-endbar label-heading">Our Address</label>
+            <div class="sub-item">
+                <span>500 Terry Francois Street,<br><br>
+                    New Delhi, Delhi 94158</span>
+            </div>
+        </div>
+        <div class="item">
+            <label class="heading-h2-endbar label-heading">Opening Hours</label>
+            <div class="sub-item">
+                Monday - Saturday: 7:00am – 7:30pm
+                <br><br> Sunday: 7:00am – 4:30pm
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <h5>Copyright &copy; www.growhere.com. All rights reserved! </h5>
+</footer>
+{% endblock %}

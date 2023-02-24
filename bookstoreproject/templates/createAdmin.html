@@ -1,0 +1,47 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleCreateBookAdmin.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>Create Book</title>
+{% endblock %}
+
+{% block content %}
+{% for message in messages %}
+<div class="containerAlert">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+    </div>
+</div>
+{% endfor %}
+    <section>
+        <div class="form">
+
+            <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <label for="" class="label">Upload Image of the book:</label>
+                <input type="file" name="image" required>
+                <br><br>
+                <label for="" class="label">Book Name:</label>
+                <input type="text" name="name" class="text" placeholder="Enter Name of the Book" required>
+                
+                <label for="" class="label">Amount: </label>
+                <input type="number" name="amount" class="text" placeholder="Enter Amount of the Book" required>
+
+                <label for="" class="label">Description:</label>
+                <input type="text" name="description" class="text" placeholder="Enter Description of the Book" required>
+
+                <div>
+                    <center>
+                        <button type="submit" class="submit">Create</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

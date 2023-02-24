@@ -1,0 +1,138 @@
+
+
+/* .sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1f0038;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 160px;
+    /* Same as the width of the sidenav */
+    /* font-size: 28px; */
+    /* Increased text to enable scrolling */
+   /* padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.heading {
+    border-bottom: 4px solid rgb(255, 255, 255);
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+} */
+
+.body{
+    padding: 0px;
+    margin: 0px;
+}
+
+/* The alert message box */
+
+.containerAlert {
+    max-width: 50rem;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.alert {
+    padding: 0.5rem;
+    background-color: rgba(1, 145, 1, 0.5);
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 15px;
+    height: 1.4rem;
+    font-size: larger;
+    width: 100%;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+
+ /* new changes */
+.navbar_a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    font-family: cursive;
+}
+.heading_a{
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 8vh;
+    /*box-shadow: 1px 2px rgba(0, 110, 255, 0.36);*/
+    background-color: #1f0038;
+    color: white;
+   
+}
+
+.nav_links {
+    list-style: none;
+    position: relative;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 1rem 1rem;
+    font-size: medium;
+    color: white;
+}
+
+.heading {
+    border-bottom: 4px solid rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar_a:hover {
+    cursor: pointer;
+    color: #e5c5ffbb;
+}

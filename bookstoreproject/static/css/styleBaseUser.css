@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar_a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    font-family: cursive;
+}
+.heading_a{
+    text-decoration: none;
+    /*color: white;*/
+    background: linear-gradient(45deg, #ff00a8,purple,pink);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: xx-large;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 8vh;
+    /*box-shadow: 1px 2px rgba(0, 110, 255, 0.36);*/
+    background-color: #1f0038;
+    color: white;
+}
+
+/* 
+.heading{
+    border: 2px solid black;
+} */
+/* 
+.drop_down {
+    border: 2px solid black;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    border: 2px solid black;
+} */
+
+/* .drop_down li{
+    border: 2px solid black;
+} */
+
+.nav_links {
+    list-style: none;
+    position: relative;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 1rem 1rem;
+    font-size: medium;
+    color: white;
+
+}
+
+/* .drop_down li a {
+    transition: property transition-duration transition-timing-function transistion-delay;
+    transition: all 0.3s ease 0s;
+} */
+
+/* .drop_items {
+    display:flex;
+    flex-direction: column;
+    border-radius: 5px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out;
+    cursor: pointer;
+    background-color: #309aac;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.36);
+    margin-top: 1rem;
+    list-style: none;
+    font-size: medium;
+} */
+
+/* .drop_down li:hover ul,
+:focus ul {
+    opacity: 1;
+    visibility: visible;
+} */
+
+/* .navbar{
+    border: 2px solid black;
+} */
+
+/* .drop_items li{
+    margin: 1rem;
+} */
+
+.shopping-cart {
+    background-color: rgb(37, 0, 130);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.shopping-cart_a{
+    text-decoration: none;
+}
+
+.shopping-cart:hover {
+    cursor: pointer;
+}
+
+.heading {
+    border-bottom: 4px solid rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar_a:hover {
+    cursor: pointer;
+    color: #e5c5ffbb;
+}
+
+.dropbtn {
+    background-color: #ffffff00;
+    color: white;
+    padding: 5px;
+    /* font-size: 16px; */
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+    font-family: cursive;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-size: medium;
+    font-family: cursive;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #4343437d;
+}
+
+/* The alert message box */
+.containerAlert {
+    max-width: 50rem;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.alert {
+    padding: 0.5rem;
+    background-color: rgba(1, 145, 1, 0.5);
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 15px;
+    height: 2.5rem;
+    font-size: larger;
+    width: 100%;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+

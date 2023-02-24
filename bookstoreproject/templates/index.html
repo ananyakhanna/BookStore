@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styleIndex.css' %}">
+    <title>Login Page</title>
+</head>
+
+<body>
+    {% for message in messages %}
+    <div class="containerAlert">
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+        </div>
+    </div>
+    {% endfor %}
+    <div class="box">
+        <form action="{% url 'login' %}" method="POST" novalidate>
+            {% csrf_token %}
+            <div class="container">
+                <h1 class="heading">Log In</h1>
+
+                <label>Username:</label>
+                <input type="text" name="username" class="" placeholder="Enter Username" required>
+
+                <label>Password:</label>
+                <input type="password" name="password" class="" placeholder="Enter Password" required>
+
+
+                <label for="">Captcha: </label>
+                <canvas id="myCanvas" width="150" height="50" style="border:1px solid #000000;" class="captcha">
+                </canvas>
+                <div class="input">
+                    <input type="text" name="captcha" placeholder="Enter Captcha" required>
+                </div>
+                <input type="submit" value="Log In" class="registerbtn">
+            </div>
+
+
+    </div>
+    </form>
+    </div>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "30px Comic Sans MS";
+        ctx.fillStyle = "red";
+        ctx.fillAlign = "center";
+        ctx.fillText("{{captcha}}", 42, 35);
+    </script>
+</body>
+
+</html>

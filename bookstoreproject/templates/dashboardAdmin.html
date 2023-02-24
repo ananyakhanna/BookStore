@@ -1,0 +1,14 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/styleBaseAdmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleDashboardAdmin.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>Welcome {{request.user}}</title>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
